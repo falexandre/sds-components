@@ -1,5 +1,17 @@
 import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 
+export interface IActions {
+  label: string;
+  func: string;
+  ico?: string;
+  color?: string;
+}
+
+export interface IColumns {
+  label: string;
+  field: string;
+}
+
 @Component({
   selector: 'list-rest',
   templateUrl: './list-rest.component.html',
@@ -8,15 +20,28 @@ import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 export class ListRestComponent implements OnInit {
 
   @Input() urlRest: string;
-  @Input() columns: string[];
-  @Input() actions: string[];
+  @Input() columns: Array<IColumns[]>;
+  @Input() actions: Array<IActions[]>;
 
   @Output() actionButton: EventEmitter<any> = new EventEmitter();
+
+  totalRecords: number;
+  payload: any[];
 
   constructor() {
   }
 
   ngOnInit() {
+    this.payload = [
+      {
+        nome: 'Fulado de tal',
+        estado: 'Santa catarina'
+      },
+      {
+        nome: 'Fulado de tal 2',
+        estado: 'Florianopolis'
+      }
+    ];
   }
 
   /**

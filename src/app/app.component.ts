@@ -6,5 +6,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+  colunas = [
+    {
+      'label': 'Nome',
+      'field': 'nome'
+    },
+    {
+      'label': 'Estado',
+      'field': 'estado'
+    }
+  ];
 }
