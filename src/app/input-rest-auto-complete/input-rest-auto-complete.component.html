@@ -1,12 +1,21 @@
-<p-autoComplete [(ngModel)]="brand" [suggestions]="filteredBrands"
+<p-autoComplete [(ngModel)]="itemSelect"
+                [suggestions]="filteredBrands"
                 (completeMethod)="filterBrands($event)"
-                [minLength]="1" placeholder="Hint: type 'v' or 'f'" [dropdown]="true">
+                [placeholder]="placeholder"
+                [minLength]="3"  [dropdown]="dropdown"
+                [field]="keyName" size="50"
+                [emptyMessage]="emptyMessage"
+                [readonly]="readonly"
+                [disabled]="disabled"
+                [required]="required"
+                [forceSelection]="forceSelection"
+                >
   <ng-template let-brand pTemplate="item">
     <div class="ui-helper-clearfix" style="border-bottom:1px solid #D5D5D5">
-      {{brand}}
+      {{brand.name}}
     </div>
   </ng-template>
-</p-autoComplete>
 
+</p-autoComplete>
 
 
