@@ -1,6 +1,9 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
+import {InputRestAutoCompleteService} from './input-rest-auto-complete/input-rest-auto-complete.service';
+
 import {
   AutoCompleteModule,
   DataTableModule,
@@ -37,9 +40,10 @@ import {FieldValidatorComponent} from './field-validator/field-validator.compone
     DataTableModule,
     SharedModule,
     InputTextModule,
-    ButtonModule
+    ButtonModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [InputRestAutoCompleteService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

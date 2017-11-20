@@ -1,4 +1,5 @@
 import {Component, OnInit, ViewEncapsulation, Input} from '@angular/core';
+import {InputRestAutoCompleteService} from './input-rest-auto-complete.service';
 
 export interface IConditions {
   fields: Array<string[]>;
@@ -33,10 +34,16 @@ export class InputRestAutoCompleteComponent implements OnInit {
   brands: string[] = ['Audi', 'BMW', 'Fiat', 'VW'];
   filteredBrands: any[];
 
-  constructor() {
+  constructor(private service: InputRestAutoCompleteService) {
   }
 
   ngOnInit() {
+    try {
+        const args = {'page': {'current': '1', 'size': '10' }};
+        this.service.query('employeeListQuery', args).subscribe( payload => console.log(payload) );
+    } catch (e) {
+        console.log('Erro ao buscar no back');
+    }
   }
 
   filterBrands(event) {
